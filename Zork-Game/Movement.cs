@@ -22,7 +22,7 @@ namespace Zork
             bool playerMoved = game.Player.Move(direction);
             if (!playerMoved)
             {
-                Console.WriteLine("They way is Shut!");
+                Console.WriteLine("The way is Shut!");
             }
         }
     }

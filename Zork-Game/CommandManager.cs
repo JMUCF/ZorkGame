@@ -5,11 +5,11 @@ using System.Web;
 
 namespace Zork
 {
-    public class CommandManger
+    public class CommandManager
     {
-        public CommandManger() => mCommands = new HashSet<Command>();
+        public CommandManager() => mCommands = new HashSet<Command>();
 
-        public CommandManger(IEnumerable<Command> commands) => mCommands = new HashSet<Command>(commands);
+        public CommandManager(IEnumerable<Command> commands) => mCommands = new HashSet<Command>(commands);
 
         public CommandContext Parse(string commandString)
         {

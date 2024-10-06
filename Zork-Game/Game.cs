@@ -23,14 +23,14 @@ namespace Zork
         private bool IsRunning { get; }
 
         [JsonIgnore]
-        public CommandManger CommandManger { get; }
+        public CommandManager CommandManager { get; }
 
         public Game(World world, Player player)
         {
             World = world;
             Player = player;
         }
-        public Game() => CommandManger = new CommandManger();
+        public Game() => CommandManager = new CommandManager();
 
         public static void Start(string gameFilename)
         {
@@ -57,11 +57,11 @@ namespace Zork
                 Console.WriteLine(Player.Location);
                 if (previousRoom != Player.Location)
                 {
-                    CommandManger.PerformCommand(this, "LOOK");
+                    CommandManager.PerformCommand(this, "LOOK");
                     previousRoom = Player.Location;
                 }
                 Console.Write("\n> ");
-                if (CommandManger.PerformCommand(this, Console.ReadLine().Trim()))
+                if (CommandManager.PerformCommand(this, Console.ReadLine().Trim()))
                 {
                     Player.Moves++;
                 }
@@ -98,7 +98,7 @@ namespace Zork
                                   (Action<Game, CommandContext>)Delegate.CreateDelegate(typeof(Action<Game, CommandContext>),
                                   method)));
 
-            CommandManger.Addcommnds(commandMethods);
+            CommandManager.Addcommnds(commandMethods);
         }
 
         private void LoadScripts()

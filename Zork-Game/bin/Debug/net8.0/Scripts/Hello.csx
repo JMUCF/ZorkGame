@@ -11,7 +11,7 @@ string[] response = new string[]
 var command = new Command("HELLO", new string[] { "HELLO", "HI", "HOWDY" },
     (game, commandContext) =>
     {
-        string selectedResponse = response[Game.Random.Next(response.Length)];
+        string selectedResponse = response[Game.random.Next(response.Length)];
         Console.WriteLine(selectedResponse);
     });
 
